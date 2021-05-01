@@ -1,0 +1,51 @@
+.main-listing {
+  &__heading {
+    background: lightblue;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-right: 35px;
+        border: none;
+        background: #1975be;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+  }
+  &__body {
+    .cards {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        &__image {
+            width: 320px;
+            margin: 3px;
+            opacity: 0.5;
+            cursor: pointer;
+            img {
+                width: 100%;
+            }
+            &:hover {
+                opacity: 1;
+                transform: scale(1.1);
+                z-index: 1;
+                transition: all .4s;
+            }
+        }
+    }
+    .loadmore {
+        text-align: center;
+        display: flex;
+        padding-bottom: 50px;
+        justify-content: center;
+        color: lightsalmon;
+        font-family: none;
+    }
+  }
+}
