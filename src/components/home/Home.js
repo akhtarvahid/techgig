@@ -5,6 +5,8 @@ import axios from "axios";
 import './home.scss';
 import { v4 as uuidv4 } from 'uuid';
 import { logoutUser } from "../../actions/auth";
+import {Logout, Loading } from '../common/constants';
+
 class Home  extends Component {
   state = {
     photos: [],
@@ -51,7 +53,7 @@ class Home  extends Component {
     return (
       <div className="main-listing">   
        <header className="main-listing__heading">
-        <button onClick={this.handleLogout}>Logout</button>
+        <button onClick={this.handleLogout}>{Logout}</button>
        </header>
        <div className="main-listing__body">
          <div className="cards">
@@ -64,7 +66,7 @@ class Home  extends Component {
          <div 
            className="loadmore"
            ref={loadingRef => (this.loadingRef = loadingRef)}>
-           <h1 style={loadingStyle}>Loading...</h1>
+           <h1 style={loadingStyle}>{Loading}</h1>
          </div>
        </div>
        </div>

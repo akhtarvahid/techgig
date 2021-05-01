@@ -7,13 +7,12 @@ import Login from './components/login/Login';
 import PrivateRoute from './routing/PrivateRoute';
 import {loginUser} from './actions/auth';
 function App(props){
-   
     const { isLoggedIn } = props.status;
      return (
         <>
           <Switch>
-           <Route exact path="/" component={Login} />   
-           <PrivateRoute authed={isLoggedIn} path='/home' component={Home} />
+            <Route exact path="/" component={Login} />   
+            <PrivateRoute authed={isLoggedIn} path='/home' component={Home} />
           </Switch>
         </>
     )
@@ -21,6 +20,10 @@ function App(props){
 function mapStateToProps(state) {
   return {
       status: state.credential
-   }
+    }
   }
-export default connect(mapStateToProps, {loginUser})(withRouter(App));
+export default connect(
+    mapStateToProps, 
+    {loginUser})
+    (withRouter(App)
+);
