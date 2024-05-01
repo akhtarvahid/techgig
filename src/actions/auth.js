@@ -2,12 +2,13 @@ import { LOGIN, LOGOUT } from "./types";
 
 const loginId = "foo";
 const loginPassword = "bar"
-export const loginUser = (item, props) => {
+export const loginUser = (item, navigate) => {
   let isLoggedIn = false;
+
   if(item.username === loginId && item.password === loginPassword) {
     localStorage.setItem('active', true)
     isLoggedIn = true;
-    props.history.push('/home')
+    navigate('/home');
 }
   return {
     type: LOGIN,
