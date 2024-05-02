@@ -6,13 +6,9 @@ function useFetch(page) {
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
     photos: [],
-    isLoading: false,
-    page: 0,
-    prevY: 0,
   });
 
   useEffect(() => {
-    console.log('page: ', page)
     try {
         setLoading(true);
         axios
@@ -23,7 +19,6 @@ function useFetch(page) {
           setState((prev) => ({
             ...prev,
             photos: [...prev.photos, ...res.data],
-            isLoading: false,
           }))
         );
         setLoading(false);
