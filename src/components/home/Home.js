@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import "./home.scss";
 import { v4 as uuidv4 } from "uuid";
@@ -19,9 +19,9 @@ const Home = () => {
     dispatch(logoutUser(navigate));
   };
 
+  const loadingStyle = { display: true ? "block" : "none" };
   if (loading) <h1 style={loadingStyle}>{Loading}</h1>;
 
-  const loadingStyle = { display: true ? "block" : "none" };
   return (
     <>
       <div className="main-listing">

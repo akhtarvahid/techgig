@@ -1,5 +1,4 @@
-
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 function useFetch(page) {
@@ -8,10 +7,10 @@ function useFetch(page) {
     photos: [],
   });
 
-  useEffect(() => {
+  const getPhotos = useCallback(async () => {
     try {
-        setLoading(true);
-        axios
+      setLoading(true);
+      axios
         .get(
           `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`
         )
@@ -21,13 +20,16 @@ function useFetch(page) {
             photos: [...prev.photos, ...res.data],
           }))
         );
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
   }, [page]);
 
-  console.log('state:::', state, loading);
+  useEffect(() => {
+    getPhotos();
+  }, [getPhotos]);
+
   return { loading, state };
 }
 
