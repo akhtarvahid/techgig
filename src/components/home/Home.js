@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from "axios";
 import './home.scss';
 import { v4 as uuidv4 } from 'uuid';
 import { logoutUser } from "../../actions/auth";
 import {Logout, Loading } from '../common/constants';
+import { withRouter } from '../common/withRouter';
 
 class Home  extends Component {
   state = {
