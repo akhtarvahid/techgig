@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import "./home.scss";
 import { v4 as uuidv4 } from "uuid";
 import { logoutUser } from "../../actions/auth";
 import { Logout, Loading } from "../common/constants";
 import { useNavigate } from "react-router-dom";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import useFetch from "../hooks/useFetch";
+import "./home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
