@@ -25,8 +25,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(state, navigate));
-    console.log("status", status, state);
-
+    
     if (!state.username && !state.password) {
       setState(
         {
