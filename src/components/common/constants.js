@@ -1,2 +1,2 @@
-export const Logout = 'Logout';
-export const Loading = 'Loading...';
+export const Logout = "Logout";
+export const Loading = "Loading...";

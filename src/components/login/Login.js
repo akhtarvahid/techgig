@@ -14,6 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const status = useSelector((state) => state.credential);
+  console.log("status", status);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -24,21 +25,29 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(state, navigate));
-    
-    if (!state.username && !state.password) {
-      setState(
-        {
-          message: "Wrong credential",
-        },
-        () => {
-          setTimeout(() => setState({ message: "" }), 2000);
-        }
-      );
+
+    if (state.username === "" || state.password === "") {
+      setState((prevState) => ({
+        ...prevState,
+        message: "Please enter username and password",
+      }));
+    } else if (state.username !== "foo" || state.password !== "bar") {
+      setState((prevState) => ({
+        ...prevState,
+        message: "Either username or password isn't correct",
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        message: "",
+      }));
+      dispatch(loginUser(state, navigate));
     }
   };
 
   const { message } = state;
+  console.log(state);
+
   return (
     <>
       <div className="login-form">
