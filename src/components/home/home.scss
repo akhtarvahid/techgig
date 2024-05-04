@@ -1,5 +1,4 @@
 .main-listing {
-  background: #069386;
   &__heading {
     background: lightblue;
     padding: 10px;
@@ -31,6 +30,7 @@
             cursor: pointer;
             img {
                 width: 100%;
+                height: 320px;
                 border: 2px solid white;
             }
             &:hover {
