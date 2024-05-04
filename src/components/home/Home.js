@@ -31,7 +31,7 @@ const Home = () => {
           {state.photos?.map((user) => (
             <div className="cards__image">
               <img
-                key={`albumId:${user.albumId}+id:${user.id}`}
+                key={`albumId:${user.albumId} + id:${user.id}`}
                 src={user.url}
                 alt={user.title}
               />
