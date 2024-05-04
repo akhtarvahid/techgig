@@ -2,7 +2,7 @@ import {
   LOGIN, LOGOUT
 } from "../actions/types";
 let initialState = {
-  isLoggedIn: false, 
+  isLoggedIn: localStorage.getItem('active') || false, 
 };
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
