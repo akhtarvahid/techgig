@@ -14,7 +14,7 @@ function App() {
         <Route
           path="/home"
           element={
-            <PrivateRoute authed={isLoggedIn}>
+            <PrivateRoute isActive={isLoggedIn}>
               <Home />
             </PrivateRoute>
           }
