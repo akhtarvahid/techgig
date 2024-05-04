@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const { loadMoreRef, page } = useInfiniteScroll();
-  const { loading, state } = useFetch(page);
+  const { loading, photos } = useFetch(page);
 
   const handleLogout = () => {
     dispatch(logoutUser(navigate));
@@ -28,10 +28,10 @@ const Home = () => {
       </header>
       <div className="main-listing__body">
         <div className="cards">
-          {state.photos?.map((user) => (
+          {photos?.map((user, i) => (
             <div className="cards__image">
               <img
-                key={`albumId:${user.albumId} + id:${user.id}`}
+                key={`albumId:${user.albumId} + id:${user.id} ${i}`}
                 src={user.url}
                 alt={user.title}
               />
