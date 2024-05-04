@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../actions/auth";
 import { useNavigate } from "react-router-dom";
 import "./login.scss";
+import { EMPTY_MSG, WRONG_INFO } from "../common/constants";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -29,12 +30,12 @@ const Login = () => {
     if (state.username === "" || state.password === "") {
       setState((prevState) => ({
         ...prevState,
-        message: "Please enter username and password",
+        message: EMPTY_MSG,
       }));
     } else if (state.username !== "foo" || state.password !== "bar") {
       setState((prevState) => ({
         ...prevState,
-        message: "Either username or password isn't correct",
+        message: WRONG_INFO,
       }));
     } else {
       setState((prevState) => ({
