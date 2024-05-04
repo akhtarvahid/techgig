@@ -28,10 +28,10 @@ const Home = () => {
       </header>
       <div className="main-listing__body">
         <div className="cards">
-          {state.photos?.map((user) => (
+          {state.photos?.map((user, i) => (
             <div className="cards__image">
               <img
-                key={`albumId:${user.albumId} + id:${user.id}`}
+                key={`albumId:${user.albumId} + id:${user.id} ${i}`}
                 src={user.url}
                 alt={user.title}
               />
