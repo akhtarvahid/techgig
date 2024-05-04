@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from "react";
 
 function useInfiniteScroll() {
   const [page, setPage] = useState(1);
@@ -14,7 +14,7 @@ function useInfiniteScroll() {
   useEffect(() => {
     const option = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 1.0,
     };
 
