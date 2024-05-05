@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../actions/auth";
 import { useNavigate } from "react-router-dom";
 import "./login.scss";
+import { EMPTY_MSG, WRONG_INFO } from "../common/constants";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -14,6 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const status = useSelector((state) => state.credential);
+  console.log("status", status);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -24,21 +26,29 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(state, navigate));
-    
-    if (!state.username && !state.password) {
-      setState(
-        {
-          message: "Wrong credential",
-        },
-        () => {
-          setTimeout(() => setState({ message: "" }), 2000);
-        }
-      );
+
+    if (state.username === "" || state.password === "") {
+      setState((prevState) => ({
+        ...prevState,
+        message: EMPTY_MSG,
+      }));
+    } else if (state.username !== "foo" || state.password !== "bar") {
+      setState((prevState) => ({
+        ...prevState,
+        message: WRONG_INFO,
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        message: "",
+      }));
+      dispatch(loginUser(state, navigate));
     }
   };
 
   const { message } = state;
+  console.log(state);
+
   return (
     <>
       <div className="login-form">
